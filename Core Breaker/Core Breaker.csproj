@@ -112,5 +112,11 @@
   <ItemGroup>
     <Resource Include="img\perfectNumber.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\numberSequences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\backArrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

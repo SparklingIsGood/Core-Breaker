@@ -23,51 +23,88 @@
                     </StackPanel>
                 </Border>
                 <Border x:Name="info" Background="#FFF0F0F0" BorderBrush="#FFDADADA" BorderThickness="1" VerticalAlignment="Center">
-                    <Label x:Name="infoLbl" Height="30" Content="Choisissez une suite de nombre à calculer." VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                    <DockPanel>
+                        <Ellipse x:Name="backBtn" Width="25" Height="25" Margin="10,0,0,0" MouseEnter="backBtn_MouseEnter" MouseLeave="backBtn_MouseLeave" OpacityMask="White" Visibility="Hidden" MouseLeftButtonUp="backBtn_MouseLeftButtonUp" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="img/backArrow.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Label x:Name="infoLbl" Height="30" Content="Menu" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-35,0,0,0" />
+                    </DockPanel>
                 </Border>
-                <ScrollViewer x:Name="nbSequenceMenuScroller" VerticalScrollBarVisibility="Visible" Height="373" >
-                    <Menu x:Name="nbSequenceMenu" Background="#FFF9F9F9" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
-                        <Menu.ItemContainerStyle>
-                            <Style TargetType="MenuItem">
-                                <Setter Property="Padding" Value="-5"></Setter>
-                                <Setter Property="Margin" Value="10,10,10,10"></Setter>
-                            </Style>
-                        </Menu.ItemContainerStyle>
+                <TabControl x:Name="tab" Height="370" Padding="0" UseLayoutRounding="False" BorderThickness="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <TabItem x:Name="mainMenuTab" Header="mainMenu" Visibility="Collapsed" Padding="0" BorderBrush="{x:Null}">
+                        <ScrollViewer x:Name="mainMenuScroller" VerticalScrollBarVisibility="Visible" Height="373" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFF9F9F9" >
+                            <Menu x:Name="mainMenu" Background="#FFF9F9F9" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Menu.ItemContainerStyle>
+                                    <Style TargetType="MenuItem">
+                                        <Setter Property="Padding" Value="-5"></Setter>
+                                        <Setter Property="Margin" Value="10,-30,10,30"></Setter>
+                                    </Style>
+                                </Menu.ItemContainerStyle>
 
-                        <Border x:Name="primeNumbersBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
-                            <StackPanel Width="245" Height="150" VerticalAlignment="Center">
-                                <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="img/eratostheneAlgo.png"/>
-                                    </Border.Background>
+                                <Border x:Name="mathsSequencesBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" MouseLeftButtonUp="mathsSequencesBtn_MouseLeftButtonUp">
+                                    <StackPanel Width="245" Height="150" VerticalAlignment="Center">
+                                        <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="img/numberSequences.png"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <Label Content="Calcul de suites de nombres" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
                                 </Border>
-                                <Label Content="Nombres premiers" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Border>
+                            </Menu>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem x:Name="mathsSequencesTab" Header="mathsSequencesMenu" Visibility="Collapsed" Padding="0" BorderBrush="{x:Null}">
+                        <ScrollViewer x:Name="nbSequenceMenuScroller" VerticalScrollBarVisibility="Visible" Height="373" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFF9F9F9" >
+                            <Menu x:Name="nbSequenceMenu" Background="#FFF9F9F9" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+                                <Menu.ItemContainerStyle>
+                                    <Style TargetType="MenuItem">
+                                        <Setter Property="Padding" Value="-5"></Setter>
+                                        <Setter Property="Margin" Value="10,10,10,10"></Setter>
+                                    </Style>
+                                </Menu.ItemContainerStyle>
 
-                        <Border x:Name="fibonacciSequenceBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
-                            <StackPanel Width="245" Height="150" VerticalAlignment="Center">
-                                <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="img/fibonacciSpiral.png"/>
-                                    </Border.Background>
+                                <Border x:Name="primeNumbersBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
+                                    <StackPanel Width="245" Height="150" VerticalAlignment="Center">
+                                        <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="img/eratostheneAlgo.png"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <Label Content="Nombres premiers" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
                                 </Border>
-                                <Label Content="Suite de Fibonacci" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Border>
 
-                        <Border x:Name="perfectNumbersBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
-                            <StackPanel Width="245" Height="150" VerticalAlignment="Center">
-                                <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="img/perfectNumber.png"/>
-                                    </Border.Background>
+                                <Border x:Name="fibonacciSequenceBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
+                                    <StackPanel Width="245" Height="150" VerticalAlignment="Center">
+                                        <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="img/fibonacciSpiral.png"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <Label Content="Suite de Fibonacci" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
                                 </Border>
-                                <Label Content="Nombres parfaits" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Border>
-                    </Menu>
-                </ScrollViewer>
+
+                                <Border x:Name="perfectNumbersBtn" Height="150" Width="245" Background="#FFEEEEEE" BorderBrush="#FFE0E0E0" CornerRadius="10" BorderThickness="1" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
+                                    <StackPanel Width="245" Height="150" VerticalAlignment="Center">
+                                        <Border BorderThickness="1" Width="190" Height="119" CornerRadius="10" Margin="0,5,0,0">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="img/perfectNumber.png"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <Label Content="Nombres parfaits" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </Menu>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+
+
+
             </StackPanel>
         </Border>
     </Grid>

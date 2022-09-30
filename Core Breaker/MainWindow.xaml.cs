@@ -42,5 +42,29 @@ namespace Core_Breaker
         {
             currentHighlighted.Background = oldColor;
         }
+
+        private void mathsSequencesBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            tab.SelectedIndex = 1;
+            infoLbl.Content = "Suite de nombres";
+            backBtn.Visibility = Visibility.Visible;
+        }
+
+        private void backBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            backBtn.Opacity = 0.75;
+        }
+
+        private void backBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            backBtn.Opacity = 1;
+        }
+
+        private void backBtn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            tab.SelectedIndex = 0;
+            infoLbl.Content = "Menu";
+            backBtn.Visibility = Visibility.Hidden;
+        }
     }
 }
